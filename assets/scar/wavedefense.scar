@@ -16,86 +16,45 @@ import("gameplay/chi/current_dynasty_ui.scar")	-- Displays Chinese Dynasty UI
 
 _mod = {
 	module = "WaveDefense",
-	objective_title = "$88866080afcb4365ab7833c92ca11051:11",
-	objective_requirement = 5,
-	options = {},
-	icons = {
-		objective = "icons\\races\\common\\victory_conditions\\victory_condition_conquest",
-	},
 }
 
 -- Register the win condition (Some functions can be prepended with "Mod_" to be called automatically as part of the scripting framework)
 Core_RegisterModule(_mod.module)
 
 wave = 1
-difficulty = 4
-
-
-function WaveDefense_OnGameSetup()
-	options_selected = {}
-	Setup_GetWinConditionOptions(options_selected)
-end
+difficulty = 1
+ENEMY_ID = 4
 
 function WaveDefense_OnInit()
 	options_selected = {}
-	Setup_GetWinConditionOptions(options_selected)
+    Setup_GetWinConditionOptions(options_selected)
+	if options_selected.difficulty.wave.enum_value == options_selected.difficulty.wave.enum_items.easy then
+        difficulty = 1
+    elseif options_selected.difficulty.wave.enum_value == options_selected.difficulty.wave.enum_items.medium then
+        difficulty = 2
+	elseif options_selected.difficulty.wave.enum_value == options_selected.difficulty.wave.enum_items.hard then
+        difficulty = 3
+    end
+	local playerCount = World_GetPlayerCount() - 1
+	print(playerCount)
 	
-	if options_selected.abc.efg then
-		print("hat geklappt digga")
-	end
+	difficulty = difficulty * playerCount 
 	
-	Mod_FindTownCenter()
-	Rule_AddInterval(Mod_SpawnUnits, 5)
+	Player_SetMaxPopulation(PLAYERS[ENEMY_ID].id, CT_Personnel, 200)
+	
+	Rule_AddInterval(WaveDefense_SpawnUnits, 5)
 end
 	
-
-function WaveDefense_FindTownCenter()
-	
-	-- This is a for loop that does something for each player in the match.
-	-- PLAYERS is a table that contains all of the players in the match.
-	-- If there are two players it will run twice, if there are eight players it will run eight times, etc.
-	for i, player in pairs(PLAYERS) do
-		
-		-- Get the player's entities and place them into an ENTITY GROUP
-		local eg_player_entities = Player_GetEntities(player.id)
-		-- Filter out everything in the ENTITY GROUP except for the Town Center
-		EGroup_Filter(eg_player_entities, "town_center", FILTER_KEEP)
-		-- Get the Town Center ENTITY by getting the first entry in the ENTITY GROUP we just filtered
-		local entity =  EGroup_GetEntityAt(eg_player_entities, 1)
-		-- Get the Town Center's ENTITY ID
-		-- Some functions require the ENTITY ID to perform an action on the ENTITY
-		local entity_id = Entity_GetID(entity) 
-		-- Get the Town Center's position
-		local position = Entity_GetPosition(entity)
-		
-		-- Store the player's Town Center information so it can be referenced later
-		player.town_center = {
-			entity = entity,
-			entity_id = entity_id,
-			position = position,
-		}
-			
-		-- Reveal Town Center locations for the first 30 seconds of the match
-		FOW_RevealArea(player.town_center.position, 40, 2000)
-	end
-end
-
 function WaveDefense_SpawnUnits()
-	for i, player in pairs(PLAYERS) do
-		print(i)
-		if i == 3 then
-			local sbp_spearman = BP_GetSquadBlueprint("unit_spearman_4_eng")
-			local spawn_position = Util_GetOffsetPosition(player.town_center.position, 20, 10)
-			local sgroup_name = "sg_wave_" .. tostring(wave)
-			local sg_player_spearmen = SGroup_CreateIfNotFound(sgroup_name)
-			
-			-- This function spawns 16 Spearmen of the player's Civilization near their starting Town Center
-			-- You can hover over the function to view the parameters it requires. From left to right:
-			-- player = The player that the spawned units will belong to.
-			-- sgroup = The SQUAD GROUP (SG) that the units will be spawned into.
-			-- units = A table of data that contains the SQUAD BLUEPRINT (SBP) and the number of SQUADS (aka units) to spawn.
-			-- spawn = The location the units will be spawned at.
-			UnitEntry_DeploySquads(player.id, sg_player_spearmen, {{sbp = sbp_spearman, numSquads = wave*difficulty }}, spawn_position)
-		end
-	end
+	local sbp_spearman = BP_GetSquadBlueprint("unit_spearman_1_hre")
+	local spawn_position = Marker_GetPosition(SpawnPoint1)
+	local sgroup_name = "sg_wave_" .. tostring(wave)
+	local sg_wave = SGroup_CreateIfNotFound(sgroup_name)
+	UnitEntry_DeploySquads(PLAYERS[ENEMY_ID].id, sg_wave, {{sbp = sbp_spearman, numSquads = wave*difficulty }}, spawn_position)
+	AI_LockSquads(PLAYERS[ENEMY_ID].id, sg_wave)
+	local move_position = Marker_GetPosition(TargetPoint1)
+	
+	Cmd_Ability(sg_wave, BP_GetAbilityBlueprint("core_formation_line"))
+	Cmd_FormationAttackMove(sg_wave, move_position, false)
+	
 end

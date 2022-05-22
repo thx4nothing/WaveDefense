@@ -1,0 +1,141 @@
+HeaderInfo =  
+{
+	mapsize =  
+	{
+		768,
+		768,
+	},
+	point_positions =  
+	{
+		 
+		{
+			ebp_name = "starting_position_shared_territory",
+			owner_id = 1001,
+			x = 54.50000,
+			y = -53.50000,
+		},
+		 
+		{
+			ebp_name = "starting_position_shared_territory",
+			owner_id = 1002,
+			x = 0.50000,
+			y = 54.50000,
+		},
+		 
+		{
+			ebp_name = "starting_position_shared_territory",
+			owner_id = 1003,
+			x = 319.52588,
+			y = -310.02686,
+		},
+		 
+		{
+			ebp_name = "starting_position_shared_territory",
+			owner_id = 1000,
+			x = -32.21382,
+			y = -60.07304,
+		},
+		 
+		{
+			ebp_name = "starting_position_shared_territory",
+			owner_id = 0,
+			x = -51.88025,
+			y = -190.30234,
+		},
+	},
+	scenario_type = 1,
+	scenarioname = "WaveDefenseMap02",
+	slots =  
+	{
+		 
+		{
+			flags = 4294967225,
+			status = 0,
+			team = 0,
+		},
+		 
+		{
+			flags = 4294967225,
+			status = 0,
+			team = 0,
+		},
+		 
+		{
+			flags = 4294967225,
+			status = 0,
+			team = 0,
+		},
+		 
+		{
+			difficulty = 3,
+			flags = 4294967205,
+			race = "english",
+			status = 2,
+			team = 1,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+		 
+		{
+			status = 1,
+			team = 10001,
+		},
+	},
+	version = 3001,
+	visible_in_lobby = true,
+	worldbp = "default",
+}
+
