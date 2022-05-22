@@ -15,7 +15,7 @@ import("winconditions/surrender.scar")			-- Support for player surrender (throug
 import("gameplay/chi/current_dynasty_ui.scar")	-- Displays Chinese Dynasty UI
 
 _mod = {
-	module = "Mod",
+	module = "WaveDefense",
 	objective_title = "$88866080afcb4365ab7833c92ca11051:11",
 	objective_requirement = 5,
 	options = {},
@@ -30,13 +30,26 @@ Core_RegisterModule(_mod.module)
 wave = 1
 difficulty = 4
 
-function Mod_OnInit()
+
+function WaveDefense_OnGameSetup()
+	options_selected = {}
+	Setup_GetWinConditionOptions(options_selected)
+end
+
+function WaveDefense_OnInit()
+	options_selected = {}
+	Setup_GetWinConditionOptions(options_selected)
+	
+	if options_selected.abc.efg then
+		print("hat geklappt digga")
+	end
+	
 	Mod_FindTownCenter()
 	Rule_AddInterval(Mod_SpawnUnits, 5)
 end
 	
 
-function Mod_FindTownCenter()
+function WaveDefense_FindTownCenter()
 	
 	-- This is a for loop that does something for each player in the match.
 	-- PLAYERS is a table that contains all of the players in the match.
@@ -67,7 +80,7 @@ function Mod_FindTownCenter()
 	end
 end
 
-function Mod_SpawnUnits()
+function WaveDefense_SpawnUnits()
 	for i, player in pairs(PLAYERS) do
 		print(i)
 		if i == 3 then
