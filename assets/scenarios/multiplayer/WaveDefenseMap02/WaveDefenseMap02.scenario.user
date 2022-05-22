@@ -1,0 +1,1613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScenarioUserSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Essence.Editor.ScenarioEditor.Controls">
+	<CameraSettings xmlns:d2p1="http://schemas.datacontract.org/2004/07/Essence.Editor.Bridge.Scenario">
+		<d2p1:SelectedCamera>Tool</d2p1:SelectedCamera>
+		<d2p1:SerializedData>UmVsaWMgQ2h1bmt5DQoaAAQAAAABAAAARk9MRENTQkS4CwAAoQEAAAAAAABGT0xEQ1NCU7gLAAAlAQAAAAAAAERBVEFEQVRBuAsAABAAAAAAAAAADAAAAGRlZmF1bHRfdG9vbEZPTERDU0JDuAsAALUAAAAAAAAAREFUQURBVEG4CwAAGQAAAAAAAAAVAAAAZGVmYXVsdF9hdXRvZGVjbGluYXRlRk9MRENFQ024CwAANAAAAAAAAABGT0xERkxDTbkLAAAgAAAAAAAAAERBVEFEQVRBuQsAAAwAAAAAAAAAAAAAAAAAAAAAAAAARk9MRENFQ024CwAALAAAAAAAAABGT0xERlRDTbkLAAAYAAAAAAAAAERBVEFUQVJHuQsAAAQAAAAAAAAAAAAAAEZPTERDU0JDuAsAACQAAAAAAAAAREFUQURBVEG4CwAAEAAAAAAAAAAMAAAAZGVmYXVsdF90b29sREFUQUNBTUS4CwAAVAAAAAAAAABZ+oNDj3JIQwpP2sOcV4JDgIVzQZ7eicOcV4JDGh91QZ7eicNddXu8ouMnPzI4QT/J62g/+WLUPjCMF7zlL4o7AowXPLsvirvK62g/+WLUPgAAIEI=</d2p1:SerializedData>
+	</CameraSettings>
+	<DefaultParentLayer>wavedefensemap02</DefaultParentLayer>
+	<GeneratorSettings xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+		<d2p1:KeyValueOfstringGeneratorSettings_PDn_PAR3E>
+			<d2p1:Key>Random Scenario</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/Essence.Editor.Bridge.Scenario.Generators" i:type="d4p1:ScenarioGeneratorSettings">
+				<d4p1:AutoIncrementRandomSeed>false</d4p1:AutoIncrementRandomSeed>
+				<d4p1:Biome>temperate</d4p1:Biome>
+				<d4p1:ClearDefaultParent>true</d4p1:ClearDefaultParent>
+				<d4p1:CustomLayout>riverParams =  
+{
+	"river_wide_smooth",
+}
+riverSplines =  
+{
+	 
+	{
+		 
+		{
+			5,
+			15,
+		},
+		 
+		{
+			16,
+			6,
+		},
+	},
+}
+terrainLayoutResult =  
+{
+	 
+	{
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			playerIndex = 3,
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			playerIndex = 2,
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			playerIndex = 0,
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			playerIndex = 1,
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+	},
+	 
+	{
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_ocean",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+		 
+		{
+			terrainType = "tt_plains",
+		},
+	},
+}
+
+</d4p1:CustomLayout>
+				<d4p1:DefaultLayerName>generated</d4p1:DefaultLayerName>
+				<d4p1:GenerateAtmosphere>false</d4p1:GenerateAtmosphere>
+				<d4p1:GenerateAudioRegions>true</d4p1:GenerateAudioRegions>
+				<d4p1:GenerateCameraMesh>true</d4p1:GenerateCameraMesh>
+				<d4p1:GenerateDecorations>false</d4p1:GenerateDecorations>
+				<d4p1:GenerateDistributionCategories>
+					<Biome xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:string" xmlns="">temperate</Biome>
+					<Values i:type="d2p1:ArrayOfKeyValueOfstringboolean" xmlns="">
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>gaia</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>resources</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>deco_other</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>deco_rocks</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>deco_foliage</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>trees_dense</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>trees_dense_small</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>trees_loose</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>trees_stealth</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+						<d2p1:KeyValueOfstringboolean>
+							<d2p1:Key>trees_stealth_small</d2p1:Key>
+							<d2p1:Value>true</d2p1:Value>
+						</d2p1:KeyValueOfstringboolean>
+					</Values>
+				</d4p1:GenerateDistributionCategories>
+				<d4p1:GenerateGrass>true</d4p1:GenerateGrass>
+				<d4p1:GenerateHeightMap>true</d4p1:GenerateHeightMap>
+				<d4p1:GenerateMapBorder>true</d4p1:GenerateMapBorder>
+				<d4p1:GenerateMarkers>true</d4p1:GenerateMarkers>
+				<d4p1:GenerateResources>false</d4p1:GenerateResources>
+				<d4p1:GenerateTiles>true</d4p1:GenerateTiles>
+				<d4p1:GenerateWaterFlowMap>true</d4p1:GenerateWaterFlowMap>
+				<d4p1:GenerateWaterHeightMap>true</d4p1:GenerateWaterHeightMap>
+				<d4p1:GenerateWaterTileMap>true</d4p1:GenerateWaterTileMap>
+				<d4p1:Layout>ugc_sample_1</d4p1:Layout>
+				<d4p1:RandomSeed i:nil="true" />
+				<d4p1:Size>map_size_512</d4p1:Size>
+				<d4p1:StartingPositionCount>3</d4p1:StartingPositionCount>
+				<d4p1:WinCondition>00000000000000000000000000000000:385555344</d4p1:WinCondition>
+				<d4p1:WinConditionOptions xmlns:d5p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel" i:nil="true" />
+			</d2p1:Value>
+		</d2p1:KeyValueOfstringGeneratorSettings_PDn_PAR3E>
+	</GeneratorSettings>
+</ScenarioUserSettings>

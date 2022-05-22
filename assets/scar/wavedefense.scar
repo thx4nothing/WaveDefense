@@ -1,0 +1,88 @@
+-- Import Utility Scripts
+import("cardinal.scar")							-- Contains sfx references, UI templates, and Civ/Age helper functions
+import("ScarUtil.scar")							-- Contains game helper functions
+
+-- Import Gameplay Systems
+import("gameplay/score.scar")					-- Tracks player score
+import("gameplay/diplomacy.scar")				-- Manages Tribute
+
+-- Import Win Conditions
+import("winconditions/annihilation.scar")		-- Support for eliminating a player when they can no longer fight or produce units
+import("winconditions/elimination.scar")		-- Support for player quitting or dropping (through pause menu or disconnection)
+import("winconditions/surrender.scar")			-- Support for player surrender (through pause menu)
+
+-- Import UI Support
+import("gameplay/chi/current_dynasty_ui.scar")	-- Displays Chinese Dynasty UI
+
+_mod = {
+	module = "Mod",
+	objective_title = "$88866080afcb4365ab7833c92ca11051:11",
+	objective_requirement = 5,
+	options = {},
+	icons = {
+		objective = "icons\\races\\common\\victory_conditions\\victory_condition_conquest",
+	},
+}
+
+-- Register the win condition (Some functions can be prepended with "Mod_" to be called automatically as part of the scripting framework)
+Core_RegisterModule(_mod.module)
+
+wave = 1
+difficulty = 4
+
+function Mod_OnInit()
+	Mod_FindTownCenter()
+	Rule_AddInterval(Mod_SpawnUnits, 5)
+end
+	
+
+function Mod_FindTownCenter()
+	
+	-- This is a for loop that does something for each player in the match.
+	-- PLAYERS is a table that contains all of the players in the match.
+	-- If there are two players it will run twice, if there are eight players it will run eight times, etc.
+	for i, player in pairs(PLAYERS) do
+		
+		-- Get the player's entities and place them into an ENTITY GROUP
+		local eg_player_entities = Player_GetEntities(player.id)
+		-- Filter out everything in the ENTITY GROUP except for the Town Center
+		EGroup_Filter(eg_player_entities, "town_center", FILTER_KEEP)
+		-- Get the Town Center ENTITY by getting the first entry in the ENTITY GROUP we just filtered
+		local entity =  EGroup_GetEntityAt(eg_player_entities, 1)
+		-- Get the Town Center's ENTITY ID
+		-- Some functions require the ENTITY ID to perform an action on the ENTITY
+		local entity_id = Entity_GetID(entity) 
+		-- Get the Town Center's position
+		local position = Entity_GetPosition(entity)
+		
+		-- Store the player's Town Center information so it can be referenced later
+		player.town_center = {
+			entity = entity,
+			entity_id = entity_id,
+			position = position,
+		}
+			
+		-- Reveal Town Center locations for the first 30 seconds of the match
+		FOW_RevealArea(player.town_center.position, 40, 2000)
+	end
+end
+
+function Mod_SpawnUnits()
+	for i, player in pairs(PLAYERS) do
+		print(i)
+		if i == 3 then
+			local sbp_spearman = BP_GetSquadBlueprint("unit_spearman_4_eng")
+			local spawn_position = Util_GetOffsetPosition(player.town_center.position, 20, 10)
+			local sgroup_name = "sg_wave_" .. tostring(wave)
+			local sg_player_spearmen = SGroup_CreateIfNotFound(sgroup_name)
+			
+			-- This function spawns 16 Spearmen of the player's Civilization near their starting Town Center
+			-- You can hover over the function to view the parameters it requires. From left to right:
+			-- player = The player that the spawned units will belong to.
+			-- sgroup = The SQUAD GROUP (SG) that the units will be spawned into.
+			-- units = A table of data that contains the SQUAD BLUEPRINT (SBP) and the number of SQUADS (aka units) to spawn.
+			-- spawn = The location the units will be spawned at.
+			UnitEntry_DeploySquads(player.id, sg_player_spearmen, {{sbp = sbp_spearman, numSquads = wave*difficulty }}, spawn_position)
+		end
+	end
+end
