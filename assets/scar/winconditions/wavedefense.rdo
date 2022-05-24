@@ -3,7 +3,7 @@
 	<DataObject Name="" Type="WinCondition" Id="6313285698260504520">
 		<DataProperty Name="m_maxTeams" Type="Int32" Value="2"/>
 		<DataProperty Name="m_gameModeType" Type="String" Value=""/>
-		<DataProperty Name="m_scarWinConditionFile" Type="String" Value="wavedefense.scar"/>
+		<DataProperty Name="m_scarWinConditionFile" Type="String" Value="wavedefense"/>
 		<DataProperty Name="m_playerUpgrades" Type="Object"/>
 		<DataProperty Name="m_feIcon" Type="String" Value=""/>
 		<DataProperty Name="m_scarMissionFile" Type="String" Value=""/>
