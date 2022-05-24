@@ -193,6 +193,7 @@
 			<DataObject Name="" Type="PrecacheList" Id="10030201683705321511" OwnerId="6313285698260504520">
 				<DataProperty Name="m_precacheItems" Type="Object">
 					<DataValue Name="SquadPrecacheItem">11130979732868818503</DataValue>
+					<DataValue Name="EntityPrecacheItem">12772558959319378402</DataValue>
 					<!--WinCondition/PrecacheList/SquadPrecacheItem/-->
 					<DataObject Name="" Type="SquadPrecacheItem" Id="11130979732868818503" OwnerId="10030201683705321511">
 						<DataProperty Name="#BaseTypes" Type="String" Value="IPrecacheItem#0|"/>
@@ -202,6 +203,18 @@
 							<DataObject Name="" Type="ReflectPBG_SquadProperties" Id="16505065064591409132" OwnerId="11130979732868818503">
 								<DataProperty Name="#BaseTypes" Type="String" Value="PropertyBagGroupReflectReference#0|Provider_PropertyBagGroup#0|"/>
 								<DataProperty Name="m_fileName" Type="String" Value="gaia_herdable_sheep"/>
+							</DataObject>
+						</DataProperty>
+					</DataObject>
+					<!--WinCondition/PrecacheList/EntityPrecacheItem/-->
+					<DataObject Name="" Type="EntityPrecacheItem" Id="12772558959319378402" OwnerId="10030201683705321511">
+						<DataProperty Name="#BaseTypes" Type="String" Value="IPrecacheItem#0|"/>
+						<DataProperty Name="m_blueprint" Type="Object">
+							<DataValue Name="ReflectPBG_EntityProperties">188304274986067389</DataValue>
+							<!--WinCondition/PrecacheList/EntityPrecacheItem/ReflectPBG_EntityProperties/-->
+							<DataObject Name="" Type="ReflectPBG_EntityProperties" Id="188304274986067389" OwnerId="12772558959319378402">
+								<DataProperty Name="#BaseTypes" Type="String" Value="PropertyBagGroupReflectReference#0|Provider_PropertyBagGroup#0|"/>
+								<DataProperty Name="m_fileName" Type="String" Value="resource_gold_deposit"/>
 							</DataObject>
 						</DataProperty>
 					</DataObject>

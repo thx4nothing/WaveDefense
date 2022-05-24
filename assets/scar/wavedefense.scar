@@ -1,90 +1,100 @@
 -----------------------------------------------------------------------
 -- Imported Scripts
 -----------------------------------------------------------------------
-
 -- Import Utility Scripts
-import("cardinal.scar")							-- Contains sfx references, UI templates, and Civ/Age helper functions
-import("ScarUtil.scar")							-- Contains game helper functions
+import("cardinal.scar") -- Contains sfx references, UI templates, and Civ/Age helper functions
+import("ScarUtil.scar") -- Contains game helper functions
 
 -- Import Gameplay Systems
-import("gameplay/score.scar")					-- Tracks player score
-import("gameplay/diplomacy.scar")				-- Manages Tribute
+import("gameplay/score.scar") -- Tracks player score
+import("gameplay/diplomacy.scar") -- Manages Tribute
 
 -- Import Win Conditions
-import("winconditions/annihilation.scar")		-- Support for eliminating a player when they can no longer fight or produce units
-import("winconditions/elimination.scar")		-- Support for player quitting or dropping (through pause menu or disconnection)
-import("winconditions/surrender.scar")			-- Support for player surrender (through pause menu)
+import("winconditions/annihilation.scar") -- Support for eliminating a player when they can no longer fight or produce units
+import("winconditions/elimination.scar") -- Support for player quitting or dropping (through pause menu or disconnection)
+import("winconditions/surrender.scar") -- Support for player surrender (through pause menu)
 
 -- Import UI Support
-import("gameplay/chi/current_dynasty_ui.scar")	-- Displays Chinese Dynasty UI
+import("gameplay/chi/current_dynasty_ui.scar") -- Displays Chinese Dynasty UI
 
-_mod = {
-	module = "WaveDefense",
-}
+_mod = {module = "WaveDefense"}
 
 -- Register the win condition (Some functions can be prepended with "WaveDefense_" to be called automatically as part of the scripting framework)
 Core_RegisterModule(_mod.module)
 
 -- Called during load as part of the game setup sequence
-function WaveDefense_OnGameSetup()
-end
+function WaveDefense_OnGameSetup() end
 
 -- Called before initialization, preceding other module OnInit functions
 function WaveDefense_PreInit()
-	-- Enable Tribute UI
-	Core_CallDelegateFunctions("TributeEnabled", true)
+    -- Enable Tribute UI
+    Core_CallDelegateFunctions("TributeEnabled", true)
 end
 
 function WaveDefense_OnInit()
-	-- setup player/enemy variables
-	ENEMY_ID = World_GetPlayerCount()
+    -- setup player/enemy variables
+    ENEMY_ID = World_GetPlayerCount()
 	
-	-- setup waves
-	waves = {}
-	waves[1] = {{BP_GetSquadBlueprint("unit_spearman_2_eng"), 1}, {BP_GetSquadBlueprint("unit_archer_2_eng"), 1}}
-	waves[2] = {{BP_GetSquadBlueprint("unit_manatarms_2_eng"), 2}, {BP_GetSquadBlueprint("unit_archer_2_eng"), 2}}
-	waves[3] = {{BP_GetSquadBlueprint("unit_knight_3_eng"), 3}, {BP_GetSquadBlueprint("unit_archer_4_eng"), 3}}
-	maxWaves = 3
-	currentWave = 1
-	nextWaveTime = 5
-	
-	-- set difficulty according to select difficulty and number of friendly players
-	difficulty = 1
-	options_selected = {}
+    -- setup waves
+    waves = {}
+    waves[1] = {
+        {BP_GetSquadBlueprint("unit_spearman_2_eng"), 1},
+        {BP_GetSquadBlueprint("unit_archer_2_eng"), 1}
+    }
+    waves[2] = {
+        {BP_GetSquadBlueprint("unit_manatarms_2_eng"), 2},
+        {BP_GetSquadBlueprint("unit_archer_2_eng"), 2}
+    }
+    waves[3] = {
+        {BP_GetSquadBlueprint("unit_knight_3_eng"), 3},
+        {BP_GetSquadBlueprint("unit_archer_4_eng"), 3}
+    }
+    maxWaves = 3
+    currentWave = 1
+    nextWaveTime = 5
+
+    -- set difficulty according to select difficulty and number of friendly players
+    difficulty = 1
+    options_selected = {}
     Setup_GetWinConditionOptions(options_selected)
-	if options_selected.difficulty.wave.enum_value == options_selected.difficulty.wave.enum_items.easy then
+    if options_selected.difficulty.wave.enum_value ==
+        options_selected.difficulty.wave.enum_items.easy then
         difficulty = 1
-    elseif options_selected.difficulty.wave.enum_value == options_selected.difficulty.wave.enum_items.medium then
+    elseif options_selected.difficulty.wave.enum_value ==
+        options_selected.difficulty.wave.enum_items.medium then
         difficulty = 2
-	elseif options_selected.difficulty.wave.enum_value == options_selected.difficulty.wave.enum_items.hard then
+    elseif options_selected.difficulty.wave.enum_value ==
+        options_selected.difficulty.wave.enum_items.hard then
         difficulty = 3
     end
-	local playerCount = World_GetPlayerCount() - 1
-	difficulty = difficulty * playerCount
+    local playerCount = World_GetPlayerCount() - 1
+    difficulty = difficulty * playerCount
+	
+	WaveDefense_SetupGoldSpawn()
 end
 
 -- Called after initialization is done when game is fading up from black
-function WaveDefense_Start()	
-	-- set enemy pop cap and age
-	-- Player_SetMaxPopulation(World_GetPlayerAt(ENEMY_ID), CT_Personnel, 250)
-	-- Player_SetCurrentAge(World_GetPlayerAt(ENEMY_ID), 4)
-	-- Player_SetCurrentAge(localPlayer.id, 4)
+function WaveDefense_Start()
+    -- set enemy pop cap and age
+    -- Player_SetMaxPopulation(World_GetPlayerAt(ENEMY_ID), CT_Personnel, 250)
+    -- Player_SetCurrentAge(World_GetPlayerAt(ENEMY_ID), 4)
+    -- Player_SetCurrentAge(localPlayer.id, 4)
 
-	local spawn_position = Marker_GetPosition(TargetPoint1) 
-	local sgroup_name = "sg_player_spearmen_" .. tostring(PLAYERS[1].id)
-	local sg_player_spearmen = SGroup_CreateIfNotFound(sgroup_name)
-	local sbp_spearman = BP_GetSquadBlueprint("unit_manatarms_2_hre")
-	UnitEntry_DeploySquads(PLAYERS[1].id, sg_player_spearmen, {{sbp = sbp_spearman, numSquads = 16 }}, spawn_position)
-	
-	-- spawn wave 1 after x seconds
-	Rule_AddOneShot(WaveDefense_SpawnUnits, nextWaveTime)
+    local spawn_position = Marker_GetPosition(TargetPoint1)
+    local sgroup_name = "sg_player_spearmen_" .. tostring(PLAYERS[1].id)
+    local sg_player_spearmen = SGroup_CreateIfNotFound(sgroup_name)
+    local sbp_spearman = BP_GetSquadBlueprint("unit_manatarms_4_hre")
+    UnitEntry_DeploySquads(PLAYERS[1].id, sg_player_spearmen,
+                           {{sbp = sbp_spearman, numSquads = 50}},
+                           spawn_position)
+
+    -- spawn wave 1 after x seconds
+    Rule_AddOneShot(WaveDefense_SpawnUnits, nextWaveTime)
 end
 -- Called when Core_SetPlayerDefeated() is invoked. Signals that a player has been eliminated from play due to defeat.
-function WaveDefense_OnPlayerDefeated(player, reason)
-end
+function WaveDefense_OnPlayerDefeated(player, reason) end
 -- When a victory condition is met, a module must call Core_OnGameOver() in order to invoke this delegate and notify all modules that the match is about to end. Generally used for clean up (removal of rules, objectives, and UI elements specific to the module).
-function WaveDefense_OnGameOver()
-end
+function WaveDefense_OnGameOver() end
 
 function WaveDefense_SpawnUnits()
     local waveEnemies = waves[currentWave]
@@ -92,54 +102,94 @@ function WaveDefense_SpawnUnits()
     local sgroup_name = "sg_wave_" .. tostring(currentWave)
     local sg_wave = SGroup_CreateIfNotFound(sgroup_name)
     for i, enemyType in pairs(waveEnemies) do
-		enemyBP = enemyType[1]
-		count = enemyType[2]
-		UnitEntry_DeploySquads(World_GetPlayerAt(ENEMY_ID), sg_wave, {{sbp = enemyBP, numSquads = difficulty*count }}, spawn_position)
-	end
-	
-	-- TODO change attacking strategy (attack player rather than a point)
-	AI_LockSquads(World_GetPlayerAt(ENEMY_ID), sg_wave)
-	local move_position = Marker_GetPosition(TargetPoint1) 
-	
-	Cmd_Ability(sg_wave, BP_GetAbilityBlueprint("core_formation_line"))
-	Cmd_FormationAttackMove(sg_wave, move_position, false)
-	
-	WaveDefense_SetupCurrentWaveObjective()
-	Rule_AddSGroupEvent(WaveDefense_OnSGKilled, sg_wave, GE_SquadKilled)
+        enemyBP = enemyType[1]
+        count = enemyType[2]
+        UnitEntry_DeploySquads(World_GetPlayerAt(ENEMY_ID), sg_wave, {
+            {sbp = enemyBP, numSquads = difficulty * count}
+        }, spawn_position)
+    end
+
+    -- TODO change attacking strategy (attack player rather than a point)
+    AI_LockSquads(World_GetPlayerAt(ENEMY_ID), sg_wave)
+    local move_position = Marker_GetPosition(TargetPoint1)
+
+    Cmd_Ability(sg_wave, BP_GetAbilityBlueprint("core_formation_line"))
+    Cmd_FormationAttackMove(sg_wave, move_position, false)
+
+    WaveDefense_SetupCurrentWaveObjective()
+    Rule_AddSGroupEvent(WaveDefense_OnSGKilled, sg_wave, GE_SquadKilled)
 end
 
 function WaveDefense_OnSGKilled()
-	local sgroup_name = "sg_wave_" .. tostring(currentWave)
-	local sg_wave = SGroup_CreateIfNotFound(sgroup_name)
-	currentEnemies = currentEnemies + 1
-	Obj_SetCounterCount(objective, currentEnemies)
+    local sgroup_name = "sg_wave_" .. tostring(currentWave)
+    local sg_wave = SGroup_CreateIfNotFound(sgroup_name)
+    currentEnemies = currentEnemies + 1
+    Obj_SetCounterCount(objective, currentEnemies)
     Obj_SetProgress(objective, currentEnemies / maxEnemies)
-	
-	if currentEnemies == maxEnemies then
-		Obj_SetCounterCount(objective, currentEnemies)
-    	Obj_SetProgress(objective, currentEnemies / maxEnemies)
-		Obj_SetState(objective, OS_Complete)
-		currentWave = currentWave + 1
-		nextWaveTime = nextWaveTime + 0
-		Rule_AddOneShot(WaveDefense_SpawnUnits, nextWaveTime)
+
+    if currentEnemies == maxEnemies then
+        Obj_SetState(objective, OS_Complete)
+		if currentWave == maxWaves then
+			Core_SetTeamVictorious(TEAMS[1], Annihilation_WinnerPresentation, WR_ANNIHILATION)
+			return
+		elseif currentWave == 2 then
+			WaveDefense_SpawnGold()
+		end
+	    currentWave = currentWave + 1
+        nextWaveTime = nextWaveTime + 0
+        Rule_AddOneShot(WaveDefense_SpawnUnits, nextWaveTime)
     end
 end
 
+function WaveDefense_SetupGoldSpawn()
+	local boulderBP = BP_GetEntityBlueprint("boulder_01_sandstone_b")
+	for i, player in pairs(PLAYERS) do	
+		local ps = Player_GetStartingPosition(player)
+		local nx = 5 * math.floor(math.floor(ps.x) / 5)
+		local ny = 5 * math.floor(math.floor(ps.y) / 5)
+		local nz = 5 * math.floor(math.floor(ps.z) / 5)
+		local psx = World_Pos(nx + 45, ny, nz)
+		local pst = World_Pos(nx + 15, ny, nz + 5)
+		local bouldergroup = EGroup_CreateIfNotFound("boulders")
+		Util_CreateEntities(player, bouldergroup, boulderBP, psx, 1, pst, true, true, false)
+	end
+end
+
+function WaveDefense_SpawnGold()
+	local bouldergroup = EGroup_CreateIfNotFound("boulders")
+	EGroup_DestroyAllEntities(bouldergroup)
+	for i, player in pairs(PLAYERS) do
+		local ps = Player_GetStartingPosition(player)
+		local nx = 5 * math.floor(math.floor(ps.x) / 5)
+		local ny = 5 * math.floor(math.floor(ps.y) / 5)
+		local nz = 5 * math.floor(math.floor(ps.z) / 5)
+		local psx = World_Pos(nx + 45, ny, nz)
+		local pst = World_Pos(nx + 15, ny, nz + 5)
+		
+		local goldveingroup = EGroup_CreateIfNotFound("goldveins")
+		Util_CreateEntities(player, goldveingroup, BP_GetEntityBlueprint("resource_gold_deposit"), psx, 1, pst, true, true, false)
+	end
+end
+
 function WaveDefense_SetupCurrentWaveObjective()
-	local sgroup_name = "sg_wave_" .. tostring(currentWave)
-	local sg_wave = SGroup_CreateIfNotFound(sgroup_name)
-	currentEnemies = 0
-	maxEnemies = SGroup_Count(sg_wave)
-	local localPlayer = Core_GetPlayersTableEntry(Game_GetLocalPlayer())
-	
-	objective = Obj_Create(localPlayer.id, "Wave: " .. tostring(currentWave), "Kill all enemies", "icons\\races\\common\\victory_conditions\\victory_condition_conquest", "ConquestObjectiveTemplate", localPlayer.raceName, OT_Primary, 0, "")
-	
-	-- Sets the objective's state to incomplete
+    local sgroup_name = "sg_wave_" .. tostring(currentWave)
+    local sg_wave = SGroup_CreateIfNotFound(sgroup_name)
+    currentEnemies = 0
+    maxEnemies = SGroup_Count(sg_wave)
+    local localPlayer = Core_GetPlayersTableEntry(Game_GetLocalPlayer())
+
+    objective = Obj_Create(localPlayer.id, "Wave: " .. tostring(currentWave),
+                           "Kill all enemies",
+                           "icons\\races\\common\\victory_conditions\\victory_condition_conquest",
+                           "ConquestObjectiveTemplate", localPlayer.raceName,
+                           OT_Primary, 0, "")
+
+    -- Sets the objective's state to incomplete
     Obj_SetState(objective, OS_Incomplete)
     -- Sets the objective to visible so players can see it
     Obj_SetVisible(objective, true)
     -- Sets the progress bar element of the objective to visible so players can see it
-    Obj_SetProgressVisible(objective, true)    
+    Obj_SetProgressVisible(objective, false)
     -- Sets the objective progress type to a counter
     Obj_SetCounterType(objective, COUNTER_CountUpTo)
     -- Set the starting objective progress to 0
